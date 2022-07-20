@@ -13,10 +13,10 @@ const RESOURCES = {
 "assets/assets/wrongplace.png": "7799a105332cdf1e4d64756bce9a6f60",
 "assets/correct.png": "b4520299b10c1341fd04279bdc82dfa0",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
-"assets/fonts/MaterialIcons-Regular.otf": "7e7a6cccddf6d7b20012a548461d5d81",
+"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
 "assets/hi_IN.txt": "2bae2a3c306468eff7d1cf15c5e65667",
 "assets/kindacode.csv": "10638dd1c89486472bf7b9a937695406",
-"assets/NOTICES": "67ec9c0c5c5425a83e90185bcfa7b6a7",
+"assets/NOTICES": "397a4f7e6c3d8d4c292eed79a06fe27a",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/packages/fluttertoast/assets/toastify.js": "e7006a0a033d834ef9414d48db3be6fc",
@@ -29,13 +29,14 @@ const RESOURCES = {
 "canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
 "canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
 "favicon.png": "52fe06133935854ba8a9745a3485eac7",
+"flutter.js": "eb2682e33f25cd8f1fc59011497c35f8",
 "icons/Icon-192.png": "52fe06133935854ba8a9745a3485eac7",
 "icons/Icon-512.png": "7f89e2869fdea679db78962b4fc9f679",
 "icons/Icon-maskable-192.png": "52fe06133935854ba8a9745a3485eac7",
 "icons/Icon-maskable-512.png": "7f89e2869fdea679db78962b4fc9f679",
-"index.html": "5854a4d5414339a52080a6cd36bbd886",
-"/": "5854a4d5414339a52080a6cd36bbd886",
-"main.dart.js": "99a13be7e656aa09b1c0b0f2a29bf3ba",
+"index.html": "8b88958db2dfd9d0c4552a861b532a41",
+"/": "8b88958db2dfd9d0c4552a861b532a41",
+"main.dart.js": "99b2cd2ebb7ec9c74eda32686dacd7e9",
 "manifest.json": "d4b072b67115298a58dd4b6b4a27b6fa",
 "version.json": "59fb67bda33857e52f73cca5475ecbf3"
 };
@@ -43,8 +44,7 @@ const RESOURCES = {
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
 "assets/NOTICES",
 "assets/AssetManifest.json",
