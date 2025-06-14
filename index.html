@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang = "hi">
-<head>
- <!-- Clarity tracking code for https://wordle-hindi.github.io/ -->
-   <script>
-      (function(c,l,a,r,i,t,y){
-         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-         })(window, document, "clarity", "script", "crs1ca6t8n");
-      </script>
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F0LP5RY6D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-4F0LP5RY6D');
-</script>
+<head>
+   <!-- Clarity tracking code for https://wordle-hindi.github.io/ -->
+   <script>
+    (function(c,l,a,r,i,t,y){
+       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+       })(window, document, "clarity", "script", "crs1ca6t8n");
+    </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F0LP5RY6D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4F0LP5RY6D');
+  </script>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -31,6 +32,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
   <base href="/">
 
   <meta charset="UTF-8">
@@ -40,23 +42,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="wordle_hindi">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
+  <title>wordle_hindi</title>
+  <style>
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgb(18, 18, 19); /* matches Color.fromARGB(255, 18, 18, 19) */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      color: white;
+      font-size: 48px;
+      overflow: hidden;
+    }
+
+    .hindi-letter {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 1;
+      font-size: 12vw;  /* responsive font size: ~12% of viewport width */
+      color: white;
+      text-align: center;
+      line-height: 1;
+    }
+    @media (max-width: 500px) {
+    .hindi-letter {
+        font-size: 18vw;  /* increase font size a bit for very small screens */
+      }
+    }
+
+    .hindi-letter.fade-out {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .hindi-letter.fade-in {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  </style>
   <title>Wordle Hindi - Web Based Word Game</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <div id="loading">
+    <div class="hindi-letter" id="letter">अ</div>
+  </div>
+
   <script>
-    const serviceWorkerVersion = "1792119288";
+    // Remove loading screen once Flutter renders first frame
+    const letters = ["आ", "इ", "ई", "उ", "ए", "ओ", "क"];
+    const letterDiv = document.getElementById("letter");
+
+    let i = 0;
+    setInterval(() => {
+      // Fade out
+      letterDiv.classList.remove("fade-in");
+      letterDiv.classList.add("fade-out");
+
+      setTimeout(() => {
+        // Change letter
+        letterDiv.textContent = letters[i % letters.length];
+        i++;
+
+        // Fade in
+        letterDiv.classList.remove("fade-out");
+        letterDiv.classList.add("fade-in");
+      }, 200); // match fade duration
+    }, 800);
+
+    window.addEventListener('flutter-first-frame', function () {
+      document.getElementById('loading')?.remove();
+    });
+    var serviceWorkerVersion = '"3298970862"';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -120,4 +193,5 @@
     }
   </script>
 </body>
+
 </html>
