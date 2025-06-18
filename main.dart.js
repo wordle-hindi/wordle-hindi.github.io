@@ -20861,7 +20861,7 @@ return n}}
 A.a8p.prototype={
 $1(a){var s=A.dq().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/1425e5e9ec5eeb4f225c401d8db69b860e0fde9a/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/8cd19e509d6bece8ccd74aef027c4ca947363095/":s)+a},
 $S:82}
 A.Nd.prototype={
 cB(a,b){var s,r=this.a
